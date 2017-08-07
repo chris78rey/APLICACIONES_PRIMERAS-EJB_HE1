@@ -908,11 +908,12 @@ public class SesionSeguridades {
 
     }
 
-    public String p_registra_evento(String phora,
+    public String p_registra_evento(String phora_incidente,
             String parea,
             String pevento,
             String psolucion,
-            String pusuario) {
+            String pusuario, 
+            String phora_solucion) {
         StoredProcedureQuery storedProcedure = em.createStoredProcedureQuery("P_REGISTRA_EVENTO");
         // set parameters
         storedProcedure.registerStoredProcedureParameter(1, String.class, ParameterMode.IN);
@@ -920,11 +921,13 @@ public class SesionSeguridades {
         storedProcedure.registerStoredProcedureParameter(3, String.class, ParameterMode.IN);
         storedProcedure.registerStoredProcedureParameter(4, String.class, ParameterMode.IN);
         storedProcedure.registerStoredProcedureParameter(5, String.class, ParameterMode.IN);
-        storedProcedure.setParameter(1, phora);
+        storedProcedure.registerStoredProcedureParameter(6, String.class, ParameterMode.IN);
+        storedProcedure.setParameter(1, phora_incidente);
         storedProcedure.setParameter(2, parea);
         storedProcedure.setParameter(3, pevento);
         storedProcedure.setParameter(4, psolucion);
         storedProcedure.setParameter(5, pusuario);
+        storedProcedure.setParameter(6, phora_solucion);
 
         // execute SP
         storedProcedure.execute();

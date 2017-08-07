@@ -30,15 +30,23 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "SEG_BITACORA")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "SegBitacora.findAll", query = "SELECT s FROM SegBitacora s"),
-    @NamedQuery(name = "SegBitacora.findById", query = "SELECT s FROM SegBitacora s WHERE s.id = :id"),
-    @NamedQuery(name = "SegBitacora.findByFecha", query = "SELECT s FROM SegBitacora s WHERE s.fecha = :fecha"),
-    @NamedQuery(name = "SegBitacora.findByHora", query = "SELECT s FROM SegBitacora s WHERE s.hora = :hora"),
-    @NamedQuery(name = "SegBitacora.findByArea", query = "SELECT s FROM SegBitacora s WHERE s.area = :area"),
-    @NamedQuery(name = "SegBitacora.findByEvento", query = "SELECT s FROM SegBitacora s WHERE s.evento = :evento"),
-    @NamedQuery(name = "SegBitacora.findBySolucion", query = "SELECT s FROM SegBitacora s WHERE s.solucion = :solucion"),
+    @NamedQuery(name = "SegBitacora.findAll", query = "SELECT s FROM SegBitacora s")
+    ,
+    @NamedQuery(name = "SegBitacora.findById", query = "SELECT s FROM SegBitacora s WHERE s.id = :id")
+    ,
+    @NamedQuery(name = "SegBitacora.findByFecha", query = "SELECT s FROM SegBitacora s WHERE s.fecha = :fecha")
+    ,
+    @NamedQuery(name = "SegBitacora.findByHora", query = "SELECT s FROM SegBitacora s WHERE s.hora = :hora")
+    ,
+    @NamedQuery(name = "SegBitacora.findByArea", query = "SELECT s FROM SegBitacora s WHERE s.area = :area")
+    ,
+    @NamedQuery(name = "SegBitacora.findByEvento", query = "SELECT s FROM SegBitacora s WHERE s.evento = :evento")
+    ,
+    @NamedQuery(name = "SegBitacora.findBySolucion", query = "SELECT s FROM SegBitacora s WHERE s.solucion = :solucion")
+    ,
     @NamedQuery(name = "SegBitacora.findByIdUsuario", query = "SELECT s FROM SegBitacora s WHERE s.idUsuario = :idUsuario")})
 public class SegBitacora implements Serializable {
+
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
@@ -52,6 +60,11 @@ public class SegBitacora implements Serializable {
     @Column(name = "HORA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date hora;
+
+    @Column(name = "HORA_SOLUCION")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date horaSolucion;
+
     @Size(max = 100)
     @Column(name = "AREA")
     private String area;
@@ -151,5 +164,19 @@ public class SegBitacora implements Serializable {
     public String toString() {
         return "entities.SegBitacora[ id=" + id + " ]";
     }
-    
+
+    /**
+     * @return the horaSolucion
+     */
+    public Date getHoraSolucion() {
+        return horaSolucion;
+    }
+
+    /**
+     * @param horaSolucion the horaSolucion to set
+     */
+    public void setHoraSolucion(Date horaSolucion) {
+        this.horaSolucion = horaSolucion;
+    }
+
 }
