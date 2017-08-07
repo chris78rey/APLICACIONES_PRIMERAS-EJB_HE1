@@ -37,7 +37,7 @@ public class SegPerfilFacade extends AbstractFacade<SegPerfil> {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<SegPerfil> cq = cb.createQuery(SegPerfil.class);
         Root<SegPerfil> root = cq.from(SegPerfil.class);        
-        List resultList = em.createQuery(cq).setMaxResults(20).getResultList();
+        List<SegPerfil> resultList = em.createQuery(cq).setMaxResults(20).getResultList();
         return resultList;
     }
 

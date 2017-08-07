@@ -39,7 +39,7 @@ public class SegSoftwareBitacoraFacade extends AbstractFacade<SegSoftwareBitacor
         CriteriaQuery<SegSoftwareBitacora> cq = cb.createQuery(SegSoftwareBitacora.class);
         Root<SegSoftwareBitacora> root = cq.from(SegSoftwareBitacora.class);
         cq.orderBy(cb.asc(root.get(SegSoftwareBitacora_.modulo)));
-        List resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
+        List<SegSoftwareBitacora> resultList = em.createQuery(cq).setHint("eclipselink.refresh", "true").getResultList();
         return resultList;
     }
 

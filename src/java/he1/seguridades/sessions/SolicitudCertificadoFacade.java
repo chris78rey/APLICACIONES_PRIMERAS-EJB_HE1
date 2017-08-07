@@ -59,7 +59,7 @@ public class SolicitudCertificadoFacade extends AbstractFacade<SolicitudCertific
         cq.where(cb.and(predicatesAND.toArray(new Predicate[predicatesAND.size()])));
 
         cq.orderBy(cb.desc(root.get(SolicitudCertificado_.slcFechaSolicitud)));
-        List resultList = em.createQuery(cq).getResultList();
+        List<SolicitudCertificado> resultList = em.createQuery(cq).getResultList();
         return resultList;
     }
 
