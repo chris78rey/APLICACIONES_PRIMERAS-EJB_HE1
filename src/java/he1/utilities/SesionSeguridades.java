@@ -950,7 +950,8 @@ public class SesionSeguridades {
                 + "       SEG_BITACORA.AREA,   "
                 + "       SEG_BITACORA.EVENTO,   "
                 + "       SEG_BITACORA.SOLUCION,   "
-                + "       SEG_BITACORA.ID_USUARIO   "
+                + "       SEG_BITACORA.ID_USUARIO ,  "
+                + "        to_char( SEG_BITACORA.HORA_SOLUCION , 'dd/mm/yyyy hh24:mi:ss') HORA_SOLUCION   "
                 + "  FROM SEGURIDADES.SEG_BITACORA   "
                 + " WHERE    (UPPER (SEG_BITACORA.AREA) LIKE UPPER ('%" + pArea + "%'))   "
                 + "       and ((UPPER (SEG_BITACORA.EVENTO) LIKE UPPER ('%" + pCriterio + "%'))   "
@@ -973,6 +974,7 @@ public class SesionSeguridades {
                 resultMap.put("EVENTO", result[4]);
                 resultMap.put("SOLUCION", result[5]);
                 resultMap.put("ID_USUARIO", result[6]);
+                resultMap.put("HORA_SOLUCION", result[7]);
                 data.add(resultMap);
 
             }
